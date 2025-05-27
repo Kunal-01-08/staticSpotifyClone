@@ -1,0 +1,43 @@
+.svgInvert {
+  filter: invert(1);
+}
+
+.flex {
+  display: flex;
+}
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+.justifyContentFlexEnd {
+  justify-content: flex-end;
+}
+.gap30 {
+  gap: 30px;
+}
+.gap20 {
+  gap: 20px;
+}
+.gap10 {
+  gap: 10px;
+}
+
+.gap50 {
+  gap: 50px;
+}
+
+.underlineOnHover:hover {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
