@@ -52,7 +52,7 @@ async function addPlaylists(x) {
 
 async function getSongList(x) {
   let response = await fetch("playlists/" + x);
-  return await response.text();
+  return await response.json();
 }
 
 function formatSeconds(seconds) {
@@ -104,26 +104,25 @@ let currentSongIndex;
 let activePlaylist;
 
 async function addSongList(x) {
-  songs = [];
-  let html = await getSongList(x);
+  songs = await getSongList(x + "/songs.json");
   // console.log(html)
 
-  let div = document.createElement("div");
-  div.innerHTML = html;
+  // let div = document.createElement("div");
+  // div.innerHTML = html;
 
-  let as = div.getElementsByTagName("a");
-  x = x.replaceAll(" ", "%20");
+  // let as = div.getElementsByTagName("a");
+  // x = x.replaceAll(" ", "%20");
   activePlaylist = x;
-  for (let index = 1; index < as.length; index++) {
-    if (as[index].href.split(`/${x}/`)[1].endsWith(".mp3"))
-      songs.push(as[index].href.split(`/${x}/`)[1]);
-  }
+  // for (let index = 1; index < as.length; index++) {
+  //   if (as[index].href.split(`/${x}/`)[1].endsWith(".mp3"))
+  //     songs.push(as[index].href.split(`/${x}/`)[1]);
+  // }
   console.log(songs);
   document.querySelector(".library").querySelector("ul").innerHTML = ``;
   for (const i of songs) {
     let name = i;
 
-    name = name.replaceAll("%20", " ");
+    // name = name.replaceAll("%20", " ");
 
     document
       .querySelector(".library")
