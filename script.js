@@ -1,29 +1,28 @@
 async function getPlaylists(x) {
   let response = await fetch(x);
-  return await response.text();
+  return await response.json();
 }
 
 async function addPlaylists(x) {
-  let playlists = [];
-  let html = await getPlaylists(x);
+  let playlists = await getPlaylists(x);
   
-
+  console.log(playlists)
   
-  let div = document.createElement("div");
-  div.innerHTML = html;
-  let as = div.getElementsByTagName("a");
+  // let div = document.createElement("div");
+  // div.innerHTML = html;
+  // let as = div.getElementsByTagName("a");
   
-  for (let index = 1; index < as.length; index++) {
-    playlists.push(as[index].href.split("/playlists/")[1]);
-  }
+  // for (let index = 1; index < as.length; index++) {
+  //   playlists.push(as[index].href.split("/playlists/")[1]);
+  // }
 
   for (let i = 0; i < playlists.length; i++) {
 
     let pName = playlists[i];
     
-    pName = pName.replaceAll("%20", " ");
+    // pName = pName.replaceAll("%20", " ");
     console.log(pName)
-    pName = pName.slice(0, pName.length - 1);
+    // pName = pName.slice(0, pName.length - 1);
     let info = await fetch(`playlists/${pName}/info.json`);
     let jsonfile = await info.json();
 
@@ -186,7 +185,7 @@ let currentSong = new Audio();
 
 async function main() {
   // await addSongList("playlists/songs")
-  await addPlaylists("playlists");
+  await addPlaylists("playlists/playlist.json");
 
   // Adding event listener to song control buttons
 
