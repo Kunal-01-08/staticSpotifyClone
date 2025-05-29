@@ -218,13 +218,14 @@ async function main() {
       alert("Playlist is not selected");
       return;
     }
-
-    let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1];
+    
+    let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1].replaceAll("%20"," ");
+    // console.log(currentSongName)
 
     for (let i = 0; i < songs.length; i++) {
       if (currentSongName == songs[i]) {
         if (i != 0)
-          playSong(songs[i - 1].replaceAll("%20", " "), activePlaylist);
+          playSong(songs[i - 1], activePlaylist);
         else
           playSong(
             songs[songs.length - 1].replaceAll("%20", " "),
@@ -239,7 +240,7 @@ async function main() {
       return;
     }
 
-    let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1];
+    let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1].replaceAll("%20"," ");
 
     for (let i = 0; i < songs.length; i++) {
       if (currentSongName == songs[i]) {
@@ -346,7 +347,7 @@ async function main() {
         return;
       }
 
-      let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1];
+     let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1].replaceAll("%20"," ");
 
       for (let i = 0; i < songs.length; i++) {
         if (currentSongName == songs[i]) {
@@ -367,7 +368,7 @@ async function main() {
         return;
       }
 
-      let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1];
+    let currentSongName = currentSong.src.split(`/${activePlaylist}/`)[1].replaceAll("%20"," ");
 
       for (let i = 0; i < songs.length; i++) {
         if (currentSongName == songs[i]) {
